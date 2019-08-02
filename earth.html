@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+
+    <script src="https://www.webglearth.com/v2/api.js"></script>
+    <script>
+      function initialize() {
+        var earth = new WE.map('earth_div');
+        //Layer on Earth
+        WE.tileLayer('http://tileserver.maptiler.com/nasa/{z}/{x}/{y}.jpg', {
+          minZoom: 0,
+          maxZoom: 5,
+          attribution: 'NASA'
+        }).addTo(earth);
+
+        // Start a simple rotation animation
+        var before = null;
+        requestAnimationFrame(function animate(now) {
+            var c = earth.getPosition();
+            var elapsed = before? now - before: 0;
+            before = now;
+            earth.setCenter([c[0], c[1] + 0.1*(elapsed/30)]);
+            requestAnimationFrame(animate);
+        });
+
+        //Markers
+        var marker = WE.marker([41, -101]).addTo(earth);
+        marker.bindPopup(`<div style='letter-spacing:3px'><h1>UNITED STATES</h1> <a href="USNews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker2 = WE.marker([56, -110]).addTo(earth);
+        marker2.bindPopup(`<div style='letter-spacing:3px'><h1>CANADA</h1> <a href="USNews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker3 = WE.marker([24.235980, 54.582454]).addTo(earth);
+        marker3.bindPopup(`<div style='letter-spacing:3px'><h1>UNITED ARAB EMIRATES</h1> <a href="AENews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker4 = WE.marker([-33.197257, -64.840489]).addTo(earth);
+        marker4.bindPopup(`<div style='letter-spacing:3px'><h1>ARGENTINA</h1> <a href="ARNews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker5 = WE.marker([33.3, -5.68]).addTo(earth);
+        marker5.bindPopup(`<div style='letter-spacing:3px'><h1>MOROCCO</h1> <a href="MANews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker6 = WE.marker([-22.714543, 135.944328]).addTo(earth);
+        marker6.bindPopup(`<div style='letter-spacing:3px'><h1>AUSTRALIA</h1> <a href="AUNews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker7 = WE.marker([23.636138, 120.662245]).addTo(earth);
+        marker7.bindPopup(`<div style='letter-spacing:3px'><h1>TAIWAN</h1> <a href="TWNews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker8 = WE.marker([49.847619, 30.978030]).addTo(earth);
+        marker8.bindPopup(`<div style='letter-spacing:3px'><h1>UKRAINE</h1> <a href="UANews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+
+        var marker9 = WE.marker([40.177747, -7.798234]).addTo(earth);
+        marker9.bindPopup(`<div style='letter-spacing:3px'><h1>PORTUGAL</h1> <a href="PTNews.html" target="_blank"><h3>WHAT'S NEWS</h3></a> <a href="getInvolved.html" target="_blank"> <h3>GET INVOLVED</h3></a></div>`, {maxWidth: 250, closeButton: true});
+      }
+    </script>
+    <style>
+      html, body{
+        padding: 0;
+        margin: 0;
+        background-image: url("https://i.pinimg.com/originals/2f/99/bf/2f99bfc0ac6d02db55e307d676168af2.gif");}
+      #earth_div{
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin-top: 80px;
+        position:
+        absolute !important;
+      }
+      .buttonDiv{
+        display: flex;
+        justify-content: center;
+        font-family: 'Rajdhani', sans-serif;
+      }
+      .button{
+        background: transparent;
+        border: 3px solid #ffffff;
+        border-radius: 0px;
+        color: #ffffff;
+        font-weight: 700;
+        letter-spacing: 4.5px;
+        padding: 14px 20px;
+        margin-top: 42px;
+        margin-right: 16px;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        text-decoration: none;
+      }
+      .button:hover {
+        background: #fa6e4f;
+        color: #ffffff;
+        border-color: transparent;
+      }
+
+    </style>
+
+    <link href='https://fonts.googleapis.com/css?family=Rajdhani:400,500,700' rel='stylesheet' type='text/css'>
+
+    <title>Spectacle</title>
+  </head>
+
+  <body onload="initialize()">
+    <div id="earth_div"></div>
+    <div class="buttonDiv">
+      <a href="index.html" class="button">BACK TO HOME</a>
+    </div>
+  </body>
+
+</html>

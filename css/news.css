@@ -1,0 +1,94 @@
+body {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+}
+
+#title {
+
+  margin-top: 100px;
+}
+
+img {
+  object-fit: cover;
+  display: inline;
+  position: relative;
+  width: 300px;
+  height: 350px;
+  margin: 40px;
+  margin-bottom: 100px;
+  box-shadow: 5px 5px 20px black;
+  transition: .5s;
+}
+
+img:hover {
+  -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  box-shadow: 0 0 2px 1px 282625;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  opacity: 0.3;
+  filter: alpha(opacity=50);
+}
+
+a {
+  display: inline;
+  position: relative;
+}
+
+a span {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+  color: white;
+  width: 300px;
+  font-size: 1.3rem;
+  font-weight: 600;
+	letter-spacing: 2px;
+}
+
+a:hover span {
+  display: inline;
+  justify-content: flex-end;
+}
+
+/* arrow */
+
+.arrow-down a {
+  position:absolute;
+  z-index:1;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.arrow-down a svg {
+  position:absolute;
+  z-index:1;
+  left:0;
+  right:0;
+  margin:0 auto;
+  animation-name: arrow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-name: arrow;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+@keyframes arrow {
+    0% {opacity:0;bottom:150px}
+    50% {opacity:1;bottom:120px}
+    100% {opacity:0;bottom:90px}
+}
+@-webkit-keyframes arrow {
+    0% {opacity:0;bottom:150px}
+    50% {opacity:1;bottom:120px}
+    100% {opacity:0;bottom:90px}
+}
